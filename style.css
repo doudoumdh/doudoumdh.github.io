@@ -13,8 +13,9 @@
 .backgroundOrange{
     background-color: orange;
 }
-.backgroundRed{
-    background-color: red;
+.textRed{
+    color: red;
+    font-weight: bold;
 }
 
 
