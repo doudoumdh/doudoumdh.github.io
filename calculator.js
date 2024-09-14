@@ -27,7 +27,7 @@ function operation() {
 let ans = prompt("Do you wanna use the Calculator? (Y/N)");
 
 if (ans === "Y" || ans === "y") {
-    // Create the table structure once at the beginning
+    // Create the table structure once at the beginning if the user chooses to use the calculator 
     
     document.write("<table border='1' id='resultTable'>");
     document.write("<tr style='background-color: orange;'><th>X</th><th>Op</th><th>Y</th><th>Result</th></tr>");
@@ -42,3 +42,4 @@ if (ans === "Y" || ans === "y") {
 } else {
     document.write("Exiting...");
 }
+

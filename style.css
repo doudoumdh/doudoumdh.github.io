@@ -28,6 +28,8 @@ p10{
     
 
 }
+
+/*The next block if for the calculator table border*/
 table, th,td {
     border: 1px solid;
     width: 300px ;
