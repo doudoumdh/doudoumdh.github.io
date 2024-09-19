@@ -15,7 +15,7 @@ function operation() {
         result = x - y;
     } else if (op === "*") {
         result = x * y;
-    } else if (op === "/") {
+    } else if (op === "/" && y!=0) {
         result = x / y;
     } else if (op === "%") {
         result = x % y;
