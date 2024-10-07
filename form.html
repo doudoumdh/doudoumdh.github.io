@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Form Alignment</title>
+    <script type="text/javascript" src="validation.js"></script>
+
+    <style>
+        .formRow {
+            display: flex;
+            
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 15px;
+            
+        }
+
+        label {
+            width: 150px;
+            
+            text-align: right;
+           
+            margin-right: 10px;
+           
+        }
+        
+        input[type="checkbox"] {
+            margin-left: 10px;
+        }
+
+        .error {
+            text-align: left;
+            color: red; 
+            margin-top: 10px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form name="submitForm" style="text-align: center;">
+        <fieldset>
+            
+            <div class="formRow">
+                <label for="userName">Username:</label>
+                <input type="text" name="userName" id="userName">
+            </div>
+            
+            
+            <div class="formRow">
+                <label for="email">Email:</label>
+                <input type="text" name="email" id="email">
+            </div>
+
+            <div class="formRow">
+                <label for="phoneNumber">Phone Number:</label>
+                <input type="text" name="phoneNumber" id="phoneNumber">
+            </div>
+
+            <div class="formRow">
+                <label for="password">Enter Password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+
+            <div class="formRow">
+                <label for="passwordConfirm">Confirm Password:</label>
+                <input type="password" name="passwordConfirm" id="passwordConfirm">
+            </div>
+
+            
+            <div class="formRow">
+                <label for="gender">Gender:</label>
+                <input type="radio" name="gender" value="Male" id="Male"> Male
+                <input type="radio" name="gender" value="Female" id="Female"> Female
+                <input type="radio" name="gender" value="Other" id="Other"> Other
+            </div>
+
+            <div class="formRow">
+                <label for="ageGroup">Age Group:</label>
+                <select name="ageGroup" size=1>
+                    <option value="blank">Choose One</option>
+                    <option value="<21"> < 21 years old</option>
+                    <option value="21-25"> 21-25 years old</option>
+                    <option value="26-35">26-35 years old</option>
+                    <option value="36-50"> 36-50 years old</option>
+                    <option value="over50"> > 50 years old</option>
+                </select>
+            </div>
+
+            <div class="formRow">
+                <label for="musicGenre">Favorite Music Genre:</label>
+                <input type="checkbox" name="musicGenre" value="pop">Pop
+                <input type="checkbox" name="musicGenre" value="Hiphop">Hiphop
+                <input type="checkbox" name="musicGenre" value="Jazz">Jazz
+                <input type="checkbox" name="musicGenre" value="Rock">Rock
+                <input type="checkbox" name="musicGenre" value="Classical Music">Classical Music
+                <input type="checkbox" name="musicGenre" value="Country">Country
+            </div>
+
+            <div class="formRow">
+                <input type="button" value="Submit" onclick="handleSubmit()">
+                <input type="reset" value="Clear">
+            </div>
+
+            <div id="errorMessage" class="error">
+                
+            </div> 
+
+        </fieldset>
+    </form>
+</body>
+
+</html>
