@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Form Alignment</title>
+    <title>Form</title>
     <script type="text/javascript" src="validation.js"></script>
 
     <style>
@@ -33,6 +33,7 @@
             color: red; 
             margin-top: 10px;
         }
+        
     </style>
 
 </head>
@@ -54,7 +55,7 @@
 
             <div class="formRow">
                 <label for="phoneNumber">Phone Number:</label>
-                <input type="text" name="phoneNumber" id="phoneNumber">
+                <input type="text" name="phoneNumber" id="phoneNumber" placeholder="(123)-456-7890">
             </div>
 
             <div class="formRow">
@@ -76,9 +77,9 @@
             </div>
 
             <div class="formRow">
-                <label for="ageGroup">Age Group:</label>
-                <select name="ageGroup" size=1>
-                    <option value="blank">Choose One</option>
+                <label for="ageGroup">Age Group:</label >
+                <select name="ageGroup" size=1 >
+                    <option value="blank"></option>
                     <option value="<21"> < 21 years old</option>
                     <option value="21-25"> 21-25 years old</option>
                     <option value="26-35">26-35 years old</option>
@@ -99,12 +100,11 @@
 
             <div class="formRow">
                 <input type="button" value="Submit" onclick="handleSubmit()">
-                <input type="reset" value="Clear">
+                <input type="reset" value="Clear" onclick="clearAll()">
             </div>
 
-            <div id="errorMessage" class="error">
-                
-            </div> 
+            <div id="errorMessage" class="error"></div> 
+            
 
         </fieldset>
     </form>
