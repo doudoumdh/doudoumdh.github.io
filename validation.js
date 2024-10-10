@@ -4,24 +4,24 @@ function validateForm() {
     let password = document.getElementById('password').value;
     let passwordConfirm = document.getElementById('passwordConfirm').value;
     let phoneNumber = document.getElementById('phoneNumber').value;
-  
-    
+
+
 
     // Clear previous error messages
     document.getElementById('errorMessage').innerHTML = '';
 
-    // Create an array to collect error messages
-    
+    // Create an array to collect error messages for later displaying
+
     let errorMessages = [];
-    
+
 
     // Username validation (4-12 letters/numbers)
-    
+
     if (!validateUsername(userName)) {
         errorMessages.push("Please enter a valid Username");
     }
 
-    if(!validateEmail(email)){
+    if (!validateEmail(email)) {
         errorMessages.push("Please enter a valid Email");
     }
 
@@ -30,8 +30,10 @@ function validateForm() {
         errorMessages.push("Please enter a valid Password");
     }
 
+    //validate to make sure the both fields match
     if (!validatePasswordConfirm(password, passwordConfirm)) {
         alert("Please enter: a matching password");
+        errorMessages.push("Please enter: a matching password");
     }
 
     // Phone number validation (10 digits)
@@ -39,18 +41,26 @@ function validateForm() {
         errorMessages.push("Please enter a valid Phone Number");
     }
 
+
+    //validate the selection of a gender
     if (!validateGender()) {
         errorMessages.push("Please select a gender.");
+    }
+
+    //validate the selection of an age group
+    if(validateAge()){
+        errorMessages.push("Please select an age group.");
     }
     // If there are error messages, display them
     if (errorMessages.length > 0) {
         document.getElementById('errorMessage').innerHTML = errorMessages.join('<br>');
         return false; // Validation failed
     }
+    
 
-    
+
     return true; // Validation passed
-    
+
 }
 
 
@@ -61,7 +71,7 @@ function validateUsername(userName) {
     return regex.test(userName);
 }
 //validate if email met requirements
-function validateEmail(email){
+function validateEmail(email) {
     let regex = /^(?=.*@).*?\.(net|com|org|edu)$/;
 
     return regex.test(email);
@@ -74,7 +84,7 @@ function validatePassword(password) {
 }
 
 //function to validate if my password matches
-function validatePasswordConfirm(password, passwordConfirm){
+function validatePasswordConfirm(password, passwordConfirm) {
     return password === passwordConfirm;
 }
 
@@ -96,22 +106,27 @@ function validateGender() {
     return false; // None of the radio buttons is selected
 }
 
+//make sure the age group is selected
+function validateAge() {
+    let age = document.getElementById('ageGroup').value;
+    return age === "blank";
+}
 
-//the following function reset the form to initial state
-function clearAll(){
+//the following function reset the form to initial state by deleting all the inputs
+function clearAll() {
     document.forms["submitForm"].reset();
     document.getElementById('errorMessage').innerHTML = '';
 }
 
 
-//Submit button handling
+//Submit button handling for an alert 
 function handleSubmit() {
     // Check validation before submitting
     if (validateForm()) {
-        alert('Submitting passed');
-        document.getElementById('submitForm').submit(); 
+        alert('Submission passed');
+        document.getElementById('submitForm').submit();
     }
-    else{
-        alert('Submitting failed');
+    else {
+        alert('Submission failed');
     }
 }
