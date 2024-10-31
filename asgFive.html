@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JQuery Test</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+    
+    <a href ="index.html">Go back to index page!</a></br></br>
+
+    <span class="images">
+        <img src="img/google.png" height="100px" alt="Google">
+        <img src="img/whatsapp.jpeg" height="100px" alt="Whatsapp">
+        <img src="img/facebook.png" height="100px" alt="Facebook">
+        <img src="img/reddit.png" height="100px" alt="Reddit">
+        <img src="img/twitter.png" height="100px" alt="Twitter">
+        <img src="img/linkedin.png" height="100px" alt="LinkedIn">
+    </span>
+
+
+
+    <p id="in">In:</p>
+    <p id="out">Out:</p>
+    <p id="coordinates">Mouse X: , Y: </p>
+
+    <!--We create an empty span to add the enlarged image in the future -->
+    <span class="large"></span>
+    <script>
+        //mouseenter and mouseleave: change of opacity
+        $(".images img").on("mouseenter", function () {
+            $(this).css("opacity", "0.5");
+            $("#in").html("In: " + $(this).attr("alt"));
+        }).on("mouseleave", function () {
+            $(this).css("opacity", "1");
+            $("#out").html("Out: " + $(this).attr("alt"));
+        });
+
+        //change the coordinates of x and y as the cursor moves
+        $(document).on("mousemove", function (event) {
+            $("#coordinates").html("Mouse X: " + event.pageX + ", Y: " + event.pageY);
+
+            //doubleclick redirects to the right website based on the logo chosen
+            $(".images img").dblclick(function () {
+                if ($(this).attr("alt") == "Google") {
+                    window.open("https://www.google.com", "_blank");
+                }
+                else if ($(this).attr("alt") == "Whatsapp") {
+                    window.open("https://www.whatsapp.com", "_blank");
+                }
+                else if ($(this).attr("alt") == "Facebook") {
+                    window.open("https://www.facebook.com", "_blank");
+                }
+
+                else if ($(this).attr("alt") == "Reddit") {
+                    window.open("https://www.reddit.com", "_blank");
+                }
+
+                else if ($(this).attr("alt") == "Twitter") {
+                    window.open("https://www.x.com", "_blank");
+                }
+                else if ($(this).attr("alt") == "LinkedIn") {
+                    window.open("https://www.linkedin.com", "_blank");
+                }
+            });
+
+            //choose an image based on click and display in the empty span created 
+            $(".images img").click(function () {
+                const src = $(this).attr("src");
+                const alt = $(this).attr("alt");
+
+
+                $(".large").html(`<img src="${src}" alt="${alt}" style="width: 300px; height: 300px;">`);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
